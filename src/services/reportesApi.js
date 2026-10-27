@@ -1,10 +1,6 @@
 import { BRANCHES, DEMO_DAYS, DEMO_SERVICES, DEMO_WORKERS, DEMO_RANGE } from '../data/demoReportes.js';
 
-/**
- * Servicio de REPORTES, en modo demostración exclusivamente.
- * Contrato previsto para Django: GET /api/reportes/resumen/?local_id=...&desde=...&hasta=...
- * No existe ni se realiza ninguna llamada HTTP real en esta etapa.
- */
+
 export async function obtenerReporteDemo({ sucursal = 'todas', desde = DEMO_RANGE.start, hasta = DEMO_RANGE.end } = {}) {
   const branch = BRANCHES.find((item) => item.id === sucursal) ?? BRANCHES[0];
   const dias = DEMO_DAYS.filter((item) => item.fecha >= desde && item.fecha <= hasta);
